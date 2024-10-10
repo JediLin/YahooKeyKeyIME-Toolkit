@@ -1,4 +1,4 @@
-# YahooKeyKeyIME-Toolkit
+# Jedi's Yahoo! KeyKey IME Toolbox
 ![GitHub all releases](https://img.shields.io/github/downloads/JediLin/YahooKeyKeyIME-Toolkit/total?style=for-the-badge)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/JediLin/YahooKeyKeyIME-Toolkit?label=LATEST%20RELEASE&style=for-the-badge)\
 ![GitHub commits since tagged version](https://img.shields.io/github/commits-since/JediLin/YahooKeyKeyIME-Toolkit/latest?style=for-the-badge)
