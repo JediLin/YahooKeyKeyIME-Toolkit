@@ -30,6 +30,7 @@ Jedi's Yahoo! KeyKey IME Toolbox 是另一個我閒暇時亂弄的東西，目�
 - Yahoo! 奇摩輸入法隱藏設定
     - 執行 `YahooKeyKeyIMEEgg.exe`
     - 設定後需重新登入系統纔能生效
+- 建議搭配[漁村輸入法表格‧改](https://github.com/JediLin/EHQ-Symbols)
 
 ## 變更沿革
 
