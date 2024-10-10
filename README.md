@@ -78,7 +78,7 @@ Jedi's Yahoo! KeyKey IME Toolbox 是另一個我閒暇時亂弄的東西，目�
 
 ## 編譯及打包說明
 - 需要先安裝以下工具：
-  - [AutoHotkey](https://www.autohotkey.com/)，我最後編譯的時候用的是比較舊的 `1.0.48.05` 版，不保證新版可以直接用。
+  - [AutoHotkey](https://www.autohotkey.com/)，要用到裡面附的 `Ahk2Exe` 工具來編譯成可執行檔。我最後編譯的時候用的是比較舊的 `1.0.48.05` 版，不保證新版可以直接用。
   - [WinRAR](https://www.rarlab.com/)
 - 請注意各種工具的預設路徑寫死在 `build.ahk` 裡面，有需要可以自己改掉
 - 執行 `build.ahk` 就會自動編譯打包成 RAR 格式的壓縮檔，壓縮檔的註解文字內容來自 `YahooKeyKeyIME.diz`，壓縮檔的檔名會採用當下的日期時間編碼。
