@@ -5,7 +5,9 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/JediLin/YahooKeyKeyIME-Toolkit?style=for-the-badge)
 ![GitHub issues](https://img.shields.io/github/issues/JediLin/YahooKeyKeyIME-Toolkit?style=for-the-badge)
 
-Jedi's Yahoo! KeyKey IME Toolbox 是另一個我閒暇時亂弄的東西，目前沒有什麼做大的打算，也沒有什麼更新時程規劃，不過若有任何使用上的意見也都歡迎回饋，如果有什麼我也覺得應該要改進的地方，我也會抽空來處理，就這樣。
+Jedi's Yahoo! KeyKey IME Toolbox 是另一個我閒暇時亂弄的東西，用來設定 Yahoo! 奇摩輸入法（Windows 版）的隱藏設定及功能。目前沒有什麼做大的打算，也沒有什麼更新時程規劃，不過若有任何使用上的意見也都歡迎回饋，如果有什麼我也覺得應該要改進的地方，我也會抽空來處理，就這樣。
+
+請注意：這裡提供的是輔助 Yahoo! 奇摩輸入法使用的工具，不是輸入法本身。Yahoo! 奇摩輸入法雖然連官方網站都不存在了，仍然有人[備份了最後的官方正式安裝程式](https://github.com/gdxhsw/keykey_backup)，請先安裝起來再搭配這裡提供的工具使用。
 
 ## 功能
 
