@@ -84,3 +84,42 @@ Jedi's Yahoo! KeyKey IME Toolbox 是另一個我閒暇時亂弄的東西，用�
   - [WinRAR](https://www.rarlab.com/)
 - 請注意各種工具的預設路徑寫死在 `build.ahk` 裡面，有需要可以自己改掉
 - 執行 `build.ahk` 就會自動編譯打包成 RAR 格式的壓縮檔，壓縮檔的註解文字內容來自 `YahooKeyKeyIME.diz`，壓縮檔的檔名會採用當下的日期時間編碼。
+
+## 技術細節
+### 鍵盤對應
+
+這個部分的調整，是對登錄進行操作，因此修改後需要重新開機，Windows 才會載入修改過的值。
+
+任何安裝到 Windows 的傳統輸入法（包括 Yahoo! 奇摩輸入法）都會列在 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts](https://learn.microsoft.com/zh-tw/windows-hardware/manufacture/desktop/windows-language-pack-default-values) 登錄機碼中，並且可以藉由修改登錄的方式，改變對應的鍵盤排列。
+
+Yahoo! 奇摩輸入法的鍵盤標識碼是 `E0200404`，確認方式是檢查 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts\E0200404` 機碼的 `Ime File` 字串值是否為 `KEYKEY.IME`；確認無誤後，要修改的目標就是這個機碼的 `Layout File` 字串，它預設的值是對應到美式 QWERTY 鍵盤排列的 `KBDUS.DLL`，若修改為 `KBDDV.DLL` 就會對應到美式 Dvorak 鍵盤排列。
+
+同理，如果要對應到其他鍵盤排列，也是修改這個字串值，例如 `KBDUSL.DLL` 會對應到美式左手 Dvorak 鍵盤排列……要知道哪個鍵盤排列是哪個值，可以研究 Windows 預設提供的各個輸入法機碼。
+
+### 隱藏設定
+
+這個部分的調整，是對 `%AppData%\Yahoo! KeyKey\` 目錄內的各個 plist 設定檔進行操作，修改後需要重新登入 Windows 才會生效。
+
+如果修改後不想要重新登入，還有一個方法是用[工作管理員](https://learn.microsoft.com/en-us/shows/inside/task-manager)把 `KeyKeyServer.exe` 這個處理程序砍掉，這樣下次啟動（切換輸入法到）Yahoo! 奇摩輸入法的時候，新的設定值就會生效。這個方法有個要注意的地方：在操作前已經使用過 Yahoo! 奇摩輸入法的那些程式也必須關閉重新啟動，否則會叫不出輸入法。
+
+plist 設定檔都是 UTF-8 編碼的純文字檔案，原則上可以用任何比較新的純文字編輯器去修改。plist 設定檔實際上是 XML 檔案，每一個設定項目都是一個 `<key>...</key>`，其設定值就是緊接著的 `<string>...</string>`（單個值）或 `<array>...</array>`（多個值）。以下說明各項隱藏設定的項目：
+
+- 共通設定：`com.yahoo.KeyKey.plist`
+  - 輸入緩衝區字型大小：`<key>IMEUnawareComposingBufferHeightPt</key>`
+  - 輸入緩衝區字型：`<key>OverrideUIFontName</key>`
+- 好打注音設定：`com.yahoo.KeyKey.SmartMandarin.plist`
+  - 注音鍵盤對應：`<key>KeyboardLayout</key>`
+    - 許氏：`<string>Hsu</string>`
+    - 倚天 26 鍵：`<string>Eten26</string>`
+    - 大千：`<string>Standard</string>`
+  - 選字按鍵：`<key>CandidateSelectionKeys</key>`
+- 傳統注音設定：`com.yahoo.KeyKey.TraditionalMandarin.plist`
+  - 注音鍵盤對應：`<key>KeyboardLayout</key>`
+    - 許氏：`<string>Hsu</string>`
+    - 倚天 26 鍵：`<string>Eten26</string>`
+    - 大千：`<string>Standard</string>`
+  - 選字按鍵：`<key>CandidateSelectionKeys</key>`
+- 一點通功能設定：`com.yahoo.KeyKey.OneKey.plist`
+  - 功能觸發鍵：`<key>ShortcutKey</key>`
+    - 預設是 ``<string>`</string>``，改成無法觸發的按鍵，就可以在效果上關閉一點通功能，解放 `` ` `` 鍵……
+
